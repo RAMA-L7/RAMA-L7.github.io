@@ -1,165 +1,114 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Rama Krishna Ketha - Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-pap6pYJ5So0yP6oWYrNLkR2VZkox7VmbV2TFe4PgX1XJzLdLOmjKJr62lbM+muFQweDYecQeG44ERgsaxhQQ9Q=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rama Krishna Ketha | Portfolio</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #007BFF;
-      color: white;
-      padding: 20px 40px;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f2f2f2; color: #333; display: flex; }
+    .sidebar {
+      width: 300px;
+      background: #ffffff;
+      padding: 40px 20px;
+      height: 100vh;
+      position: fixed;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.05);
       text-align: center;
     }
-    nav {
-      background-color: #0056b3;
-      padding: 10px 0;
-      text-align: center;
+    .sidebar img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
     }
-    nav a {
-      color: white;
+    .sidebar h1 { font-size: 24px; margin-bottom: 10px; }
+    .sidebar p { font-size: 14px; color: #777; margin-bottom: 30px; }
+    .sidebar nav a {
+      display: block;
+      margin: 10px 0;
+      color: #007bff;
       text-decoration: none;
-      margin: 0 20px;
       font-weight: bold;
     }
-    .section {
-      padding: 30px 40px;
-      background: white;
-      margin: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    .main {
+      margin-left: 300px;
+      padding: 40px;
+      width: calc(100% - 300px);
+      background: #ffffff;
     }
-    h2 {
-      color: #333;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    footer {
-      background: #007BFF;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-    .icon {
-      margin-right: 10px;
-      color: #007BFF;
-    }
-    .resume-btn {
+    section { margin-bottom: 60px; }
+    h2 { color: #007bff; margin-bottom: 20px; }
+    .resume-button {
       display: inline-block;
-      background: #28a745;
+      padding: 10px 20px;
+      background: #007bff;
       color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
+      border-radius: 5px;
       text-decoration: none;
-      font-weight: bold;
-      margin-top: 20px;
+      margin-top: 15px;
     }
+    .blog-preview, .project-list li { margin-bottom: 15px; }
   </style>
-  <script>
-  function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-  }
-  window.onload = () => {
-    if (localStorage.getItem('theme') === 'dark') {
-      document.body.classList.add('dark-mode');
-    }
-  };
-</script>
-<style>
-  body.dark-mode {
-    background: #121212;
-    color: #e0e0e0;
-  }
-  body.dark-mode a {
-    color: #90ee90;
-  }
-  .dark-toggle {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: #444;
-    color: white;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 12px;
-  }
-</style>
 </head>
 <body>
-<button class="dark-toggle" onclick="toggleDarkMode()">🌓 Toggle Theme</button>
-  <header>
-  <div style="display: flex; flex-direction: column; align-items: center; padding: 20px;">
-    <img src="avatar.png" alt="Rama Krishna Ketha" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 12px rgba(0,0,0,0.2); margin-bottom: 15px;">
-    <h1 style="margin: 0;">Rama Krishna Ketha</h1>
-    <p><em style="color: gray;">Designing chips, designing life — one clock cycle at a time.</em></p>
+
+  <div class="sidebar">
+    <img src="avatar.png" alt="Rama Krishna Ketha">
+    <h1>Rama Krishna Ketha</h1>
+    <p>VLSI Engineer | AI Evaluator | Writer | Listener</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#resume">Resume</a>
+      <a href="#projects">Projects</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
-</header>
 
-  <nav>
-    <a href="#about"><i class="fa-solid fa-user"></i> About</a>
-    <a href="#portfolio"><i class="fa-solid fa-folder-open"></i> Portfolio</a>
-    <a href="#goals"><i class="fa-solid fa-bullseye"></i> Goals</a>
-    <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
-    <a href="blog.html"><i class="fa-solid fa-pen-nib"></i> Blog</a>
-  </nav>
+  <div class="main">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>I blend deep technical skills in VLSI and AI with human-centered thinking from emotional support. I write, rate, analyze, and design systems that function efficiently — just like silicon chips.</p>
+      <p><em>“Designing chips, designing life — one clock cycle at a time.”</em></p>
+    </section>
 
-  <section class="section" id="about">
-    <h2><i class="fa-solid fa-circle-info icon"></i>About Me</h2>
-    <p>
-      I am a passionate learner and engineer blending deep technical expertise in VLSI with human-centered skills in emotional support and AI evaluation. I explore how hardware, empathy, and AI can be integrated to build both smarter and kinder systems.
-    </p>
-    <a class="resume-btn" href="RAMA_KRISHNA_KETHA_Resume.pdf" target="_blank">
-      <i class="fa-solid fa-download"></i> Download Resume
-    </a>
-  </section>
+    <section id="resume">
+      <h2>Resume</h2>
+      <p>Download my latest resume below.</p>
+      <a class="resume-button" href="RAMA_KRISHNA_KETHA_Resume.pdf" target="_blank">Download Resume</a>
+    </section>
 
-  <section class="section" id="portfolio">
-    <h2><i class="fa-solid fa-laptop-code icon"></i>Portfolio Sections</h2>
-    <ul>
-      <li><strong>VLSI Projects:</strong> <a href="vlsi_projects.html">View Projects</a></li>
-      <li><strong>AI Rating Logs:</strong> TELUS International learning tasks & logic</li>
-      <li><strong>Prompt Engineering:</strong> Meta-prompts, structured templates</li>
-      <li><strong>Writing Portfolio:</strong> <a href="medium_articles.html">View Articles</a></li>
-      <li><strong>Emotional Support:</strong> Listener Certification & insights</li>
-    </ul>
-  </section>
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul class="project-list">
+        <li><strong>VLSI Projects:</strong> Floorplanning, CTS, IR Drop, Timing ECO</li>
+        <li><strong>Prompt Engineering:</strong> Meta-prompts, Templates, Zetheta Internship</li>
+        <li><strong>AI Rater Work:</strong> TELUS badges, task logic, ratings log</li>
+      </ul>
+    </section>
 
-  <section class="section" id="goals">
-    <h2><i class="fa-solid fa-chart-line icon"></i>Current Goals</h2>
-    <ul>
-      <li>Earn “Search Master” badge in TELUS Digital Rater Academy</li>
-      <li>Publish 3+ Medium articles on VLSI x Life analogies</li>
-      <li>Get a remote internship in Prompt Engineering</li>
-      <li>Continue support chats to build emotional intelligence</li>
-    </ul>
-  </section>
+    <section id="blog">
+      <h2>Blog Previews</h2>
+      <div class="blog-preview">
+        <strong>The Invisible Blueprint</strong> — How floorplanning taught me to structure my life.<br/>
+        <a href="https://medium.com/@ramasketha14093/the-invisible-blueprint-what-vlsi-design-taught-me-about-building-a-focused-life-7414543a451e" target="_blank">Read more →</a>
+      </div>
+      <div class="blog-preview">
+        <strong>Clock Trees and Life Rhythms</strong> — Staying in sync with life’s internal frequencies.<br/>
+        <a href="https://medium.com/@ramasketha14093/️-clock-trees-and-life-rhythms-synchronizing-with-your-internal-frequency-869c2ac1ca67" target="_blank">Read more →</a>
+      </div>
+    </section>
 
-  <section class="section" id="contact">
-    <h2><i class="fa-solid fa-address-book icon"></i>Contact</h2>
-    <p><i class="fa-solid fa-envelope icon"></i>Email: <a href="mailto:ramasketha14093@gmail.com">ramasketha14093@gmail.com</a></p>
-    <p><i class="fa-brands fa-linkedin icon"></i>LinkedIn: <a href="https://www.linkedin.com/in/rama-krishna-ketha-aa17751b9/" target="_blank">rama-krishna-ketha</a></p>
-    <p><i class="fa-brands fa-github icon"></i>GitHub: <a href="https://github.com/RAMA-L7" target="_blank">RAMA-L7</a></p>
-  </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:ramasketha14093@gmail.com">ramasketha14093@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/rama-krishna-ketha-aa17751b9" target="_blank">View Profile</a></p>
+      <p>GitHub: <a href="https://github.com/RAMA-L7" target="_blank">RAMA-L7</a></p>
+    </section>
+  </div>
 
-  <footer>
-    <p>© 2025 Rama Krishna Ketha. Built with ❤️ using HTML and CSS.</p>
-  </footer>
 </body>
 </html>
