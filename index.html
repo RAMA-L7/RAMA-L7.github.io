@@ -69,13 +69,46 @@
       margin-top: 20px;
     }
   </style>
+  <script>
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+  }
+  window.onload = () => {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+  };
+</script>
+<style>
+  body.dark-mode {
+    background: #121212;
+    color: #e0e0e0;
+  }
+  body.dark-mode a {
+    color: #90ee90;
+  }
+  .dark-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #444;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+</style>
 </head>
 <body>
+<button class="dark-toggle" onclick="toggleDarkMode()">🌓 Toggle Theme</button>
   <header>
   <div style="display: flex; flex-direction: column; align-items: center; padding: 20px;">
-    <img src="avatar.png" alt="Rama Krishna Ketha" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 12px rgba(0,0,0,0.2); margin-bottom: 15px;">
+    <img src="avatar.png" alt="Rama Krishna Ketha" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 12px rgba(0,0,0,0.2); margin-bottom: 15px;">
     <h1 style="margin: 0;">Rama Krishna Ketha</h1>
-    <p style="color: #f0f0f0;">VLSI Engineer | AI Evaluator | Writer | Support Listener</p>
+    <p><em style="color: gray;">Designing chips, designing life — one clock cycle at a time.</em></p>
   </div>
 </header>
 
