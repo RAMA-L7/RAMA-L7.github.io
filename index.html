@@ -7,15 +7,17 @@
   <title>Rama Krishna Ketha | Portfolio</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f2f2f2; color: #333; display: flex; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f2f2f2; color: #333; }
+    a { color: #007bff; text-decoration: none; }
+    .container { display: flex; flex-direction: row; min-height: 100vh; }
+
     .sidebar {
       width: 300px;
-      background: #ffffff;
+      background: #fff;
       padding: 40px 20px;
-      height: 100vh;
-      position: fixed;
       box-shadow: 2px 0 10px rgba(0,0,0,0.05);
       text-align: center;
+      flex-shrink: 0;
     }
     .sidebar img {
       width: 150px;
@@ -29,15 +31,13 @@
     .sidebar nav a {
       display: block;
       margin: 10px 0;
-      color: #007bff;
-      text-decoration: none;
       font-weight: bold;
     }
+
     .main {
-      margin-left: 300px;
+      flex: 1;
       padding: 40px;
-      width: calc(100% - 300px);
-      background: #ffffff;
+      background: #fff;
     }
     section { margin-bottom: 60px; }
     h2 { color: #007bff; margin-bottom: 20px; }
@@ -47,67 +47,84 @@
       background: #007bff;
       color: white;
       border-radius: 5px;
-      text-decoration: none;
       margin-top: 15px;
     }
     .blog-preview, .project-list li { margin-bottom: 15px; }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container { flex-direction: column; }
+      .sidebar {
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+        padding: 20px;
+      }
+      .main {
+        margin-left: 0;
+        padding: 20px;
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <div class="sidebar">
-    <img src="avatar.png" alt="Rama Krishna Ketha">
-    <h1>Rama Krishna Ketha</h1>
-    <p>VLSI Engineer | AI Evaluator | Writer | Listener</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#resume">Resume</a>
-      <a href="#projects">Projects</a>
-      <a href="#blog">Blog</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
+  <div class="container">
+    <div class="sidebar">
+      <img src="avatar.png" alt="Rama Krishna Ketha">
+      <h1>Rama Krishna Ketha</h1>
+      <p>VLSI Engineer | AI Evaluator | Writer | Listener</p>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#resume">Resume</a>
+        <a href="#projects">Projects</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
 
-  <div class="main">
-    <section id="about">
-      <h2>About Me</h2>
-      <p>I blend deep technical skills in VLSI and AI with human-centered thinking from emotional support. I write, rate, analyze, and design systems that function efficiently — just like silicon chips.</p>
-      <p><em>“Designing chips, designing life — one clock cycle at a time.”</em></p>
-    </section>
+    <div class="main">
+      <section id="about">
+        <h2>About Me</h2>
+        <p>I blend deep technical skills in VLSI and AI with human-centered thinking from emotional support. I write, rate, analyze, and design systems that function efficiently — just like silicon chips.</p>
+        <p><em>“Designing chips, designing life — one clock cycle at a time.”</em></p>
+      </section>
 
-    <section id="resume">
-      <h2>Resume</h2>
-      <p>Download my latest resume below.</p>
-      <a class="resume-button" href="RAMA_KRISHNA_KETHA_Resume.pdf" target="_blank">Download Resume</a>
-    </section>
+      <section id="resume">
+        <h2>Resume</h2>
+        <p>Download my latest resume below.</p>
+        <a class="resume-button" href="RAMA_KRISHNA_KETHA_Resume.pdf" target="_blank">Download Resume</a>
+      </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <ul class="project-list">
-        <li><strong>VLSI Projects:</strong> Floorplanning, CTS, IR Drop, Timing ECO</li>
-        <li><strong>Prompt Engineering:</strong> Meta-prompts, Templates, Zetheta Internship</li>
-        <li><strong>AI Rater Work:</strong> TELUS badges, task logic, ratings log</li>
-      </ul>
-    </section>
+      <section id="projects">
+        <h2>Projects</h2>
+        <ul class="project-list">
+          <li><strong>VLSI Projects:</strong> Floorplanning, CTS, IR Drop, Timing ECO</li>
+          <li><strong>Prompt Engineering:</strong> Meta-prompts, Templates, Zetheta Internship</li>
+          <li><strong>AI Rater Work:</strong> TELUS badges, task logic, ratings log</li>
+        </ul>
+      </section>
 
-    <section id="blog">
-      <h2>Blog Previews</h2>
-      <div class="blog-preview">
-        <strong>The Invisible Blueprint</strong> — How floorplanning taught me to structure my life.<br/>
-        <a href="https://medium.com/@ramasketha14093/the-invisible-blueprint-what-vlsi-design-taught-me-about-building-a-focused-life-7414543a451e" target="_blank">Read more →</a>
-      </div>
-      <div class="blog-preview">
-        <strong>Clock Trees and Life Rhythms</strong> — Staying in sync with life’s internal frequencies.<br/>
-        <a href="https://medium.com/@ramasketha14093/️-clock-trees-and-life-rhythms-synchronizing-with-your-internal-frequency-869c2ac1ca67" target="_blank">Read more →</a>
-      </div>
-    </section>
+      <section id="blog">
+        <h2>Blog Previews</h2>
+        <div class="blog-preview">
+          <strong>The Invisible Blueprint</strong> — How floorplanning taught me to structure my life.<br/>
+          <a href="https://medium.com/@ramasketha14093/the-invisible-blueprint-what-vlsi-design-taught-me-about-building-a-focused-life-7414543a451e" target="_blank">Read more →</a>
+        </div>
+        <div class="blog-preview">
+          <strong>Clock Trees and Life Rhythms</strong> — Staying in sync with life’s internal frequencies.<br/>
+          <a href="https://medium.com/@ramasketha14093/️-clock-trees-and-life-rhythms-synchronizing-with-your-internal-frequency-869c2ac1ca67" target="_blank">Read more →</a>
+        </div>
+      </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:ramasketha14093@gmail.com">ramasketha14093@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/rama-krishna-ketha-aa17751b9" target="_blank">View Profile</a></p>
-      <p>GitHub: <a href="https://github.com/RAMA-L7" target="_blank">RAMA-L7</a></p>
-    </section>
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:ramasketha14093@gmail.com">ramasketha14093@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/rama-krishna-ketha-aa17751b9" target="_blank">View Profile</a></p>
+        <p>GitHub: <a href="https://github.com/RAMA-L7" target="_blank">RAMA-L7</a></p>
+      </section>
+    </div>
   </div>
 
 </body>
