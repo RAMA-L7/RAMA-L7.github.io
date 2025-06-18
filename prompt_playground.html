@@ -99,7 +99,107 @@
   <details open>
     <summary>✍️ Writing & VLSI Analogies</summary>
 
-    <div class="prompt-card" id="prompt1">
+  <div class="prompt-card" id="prompt1">
+    <h3>VLSI City Blueprint Story</h3>
+    <p><strong>Description:</strong> Explain Physical Design stages as metaphors for city planning and life routines.</p>
+    <pre id="text1">
+You are a city architect who uses chip design as a metaphor for life organization. Compare Floorplanning, Placement, CTS, Routing, and Timing Closure to building a smart city.
+
+Objective:
+Explain each VLSI stage as if designing a life routine, space management, energy routing, and synchronization.
+
+Process:
+- 1 analogy per stage (max 5 total)
+- Explain how physical layout affects flow and timing
+- Conclude with a quote or insight
+
+Output:
+Markdown bullet list with italics for analogies
+
+Limit:
+Max 700 tokens
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text1')">📋 Copy</button>
+  </div>
+
+  <div class="prompt-card" id="prompt2">
+    <h3>Clock Tree = Circadian Rhythm</h3>
+    <p><strong>Description:</strong> Compare Clock Tree Synthesis to human sleep-wake cycles.</p>
+    <pre id="text2">
+You are a science blogger who explains technical systems via biology. Compare Clock Tree Synthesis in chip design to the human circadian rhythm.
+
+Instructions:
+- Introduce CTS in one sentence
+- Use 3 biological systems (brain clock, sleep-wake, hormone sync) as analogies
+- Keep tone friendly, not academic
+
+Output:
+3-paragraph blog post format
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text2')">📋 Copy</button>
+  </div>
+
+  <div class="prompt-card" id="prompt3">
+    <h3>Design Closure = Life Completion Ritual</h3>
+    <p><strong>Description:</strong> Use chip closure to explain finishing personal goals.</p>
+    <pre id="text3">
+Act as a motivational speaker and VLSI engineer. Draw parallels between design closure in chip design and completing personal goals (projects, health, learning).
+
+Process:
+- Start with a hook: “In chip design, closure isn’t optional...”
+- Compare it to consistency, alignment, cleanup
+- End with an emotional takeaway
+
+Tone:
+Inspiring, energetic, short paragraphs
+
+Word Count:
+350–500 words
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text3')">📋 Copy</button>
+  </div>
+
+  <div class="prompt-card" id="prompt4">
+    <h3>Time Management = Timing Analysis</h3>
+    <p><strong>Description:</strong> Explain STA using deadlines, buffers, and slack as daily life metaphors.</p>
+    <pre id="text4">
+You are a personal productivity coach trained in VLSI. Help users understand STA (Static Timing Analysis) by comparing it to life’s deadlines and buffers.
+
+Steps:
+1. Define what STA does in chips
+2. Show how arrival time, slack, and constraints apply to daily planning
+3. Add a metaphor: “Wake up earlier = positive slack”
+
+Format:
+Markdown or 3-bullet metaphor with intro/conclusion
+
+Limit:
+300–500 tokens
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text4')">📋 Copy</button>
+  </div>
+
+  <div class="prompt-card" id="prompt5">
+    <h3>VLSI = Life Planning Toolkit (Cheat Sheet)</h3>
+    <p><strong>Description:</strong> Provide a summary table of real-world metaphors for each PD stage.</p>
+    <pre id="text5">
+You are a teacher preparing VLSI metaphors for students new to chip design.
+
+Goal:
+Deliver a cheat sheet that shows how each PD stage connects to life, like:
+- Floorplan = Room Layout
+- Placement = Desk Arrangement
+- CTS = Daily Schedule Sync
+- Routing = Communication Channels
+- STA = Deadline Check
+
+Output:
+2-column markdown table (Stage | Analogy)
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text5')">📋 Copy</button>
+  </div>
+
+    <div class="prompt-card" id="prompt60">
       <h3>VLSI Concept Explainer as Analogy Writer</h3>
       <p><strong>Description:</strong> Converts technical stages of Physical Design into real-life analogies.</p>
       <pre id="text1">
@@ -122,7 +222,7 @@ Max 500 tokens
 
 Generate all 5 stage analogies in one pass.
       </pre>
-      <button class="copy-btn" onclick="copyPrompt('text1')">📋 Copy</button>
+      <button class="copy-btn" onclick="copyPrompt('text60')">📋 Copy</button>
     </div>
 
   </details>
@@ -130,7 +230,107 @@ Generate all 5 stage analogies in one pass.
   <details>
     <summary>💼 Resume & Listener Roles</summary>
 
-    <div class="prompt-card" id="prompt2">
+  <div class="prompt-card" id="prompt6">
+    <h3>Emotional Support Resume Rewriter</h3>
+    <p><strong>Description:</strong> Turn 7 Cups training into job-ready resume lines.</p>
+    <pre id="text6">
+You are a career coach for mental health and support roles. The user has completed an active listening course on 7 Cups and scored 42/46.
+
+Objective:
+Transform this achievement into 3 resume-ready bullet points.
+
+Constraints:
+- Each point starts with a strong action verb
+- Include one measurable or outcome-focused phrase
+
+Tone:
+Professional and compassionate
+
+Output Format:
+- Bullet list in Markdown
+- Avoid repeating “helped” or “supported” too often
+
+Final Output:
+3 powerful resume lines showing skills in reflection, empathy, etiquette, and crisis awareness.
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text6')">📋 Copy</button>
+  </div>
+
+  <div class="prompt-card" id="prompt7">
+    <h3>Resume Reviewer: Listener Role Fit</h3>
+    <p><strong>Description:</strong> Match soft skills from training to ideal remote roles.</p>
+    <pre id="text7">
+You are a resume reviewer trained in emotional support work. The user wants to find freelance or remote roles aligned with active listening, compassion, and chat etiquette.
+
+Objective:
+- Identify 3 job titles they’d fit
+- Give 2 example resume bullet points for each
+- Suggest 2 job platforms
+
+Output:
+Markdown list organized by title → bullets → platforms
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text7')">📋 Copy</button>
+  </div>
+
+  <div class="prompt-card" id="prompt8">
+    <h3>Listener → Resume Translator (Tone Tuner)</h3>
+    <p><strong>Description:</strong> Rewrite user input into resume-ready, professional tone.</p>
+    <pre id="text8">
+You are a tone rewriter. The user describes their experience in plain words and wants resume bullet points in a hiring-friendly format.
+
+Input Example:
+“I helped a lot of people feel better and listened to their emotions. I was always kind in chat.”
+
+Constraints:
+- Rewrite into 2–3 resume points
+- Use varied sentence starters and verbs
+- Avoid vague terms like "helped", "always"
+
+Output:
+Bullet list format, professional tone
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text8')">📋 Copy</button>
+  </div>
+
+  <div class="prompt-card" id="prompt9">
+    <h3>Cover Letter Generator: Listener Job</h3>
+    <p><strong>Description:</strong> Auto-generate a soft-skills focused cover letter.</p>
+    <pre id="text9">
+You are a career assistant. Write a short, heartfelt cover letter for a listener/support role based on the following:
+
+Profile:
+- Certified listener with 7 Cups
+- Skilled in reflection, high warmth, and chat etiquette
+- Seeking a part-time emotional support role
+
+Tone:
+Warm, humble, concise. No clichés.
+
+Output:
+Cover letter in plain text (max 200 words)
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text9')">📋 Copy</button>
+  </div>
+
+  <div class="prompt-card" id="prompt10">
+    <h3>Portfolio Summary: Emotional Support Side</h3>
+    <p><strong>Description:</strong> Write a 1-paragraph portfolio blurb for listener/support identity.</p>
+    <pre id="text10">
+You are an AI writer assistant helping users summarize their emotional support training in a personal portfolio.
+
+Use the following:
+- Listener on 7 Cups
+- Scored 42/46 on training
+- Skilled in high warmth, reflective listening, and asking questions
+
+Write:
+- A 1-paragraph summary for a “Support” section in a personal GitHub or resume site
+- Include tone of empathy, strength, and community care
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text10')">📋 Copy</button>
+  </div>
+    <div class="prompt-card" id="prompt20">
       <h3>Emotional Support Resume Rewriter</h3>
       <p><strong>Description:</strong> Turn 7 Cups training into job-winning resume lines.</p>
       <pre id="text2">
@@ -153,7 +353,7 @@ Output Format:
 Final Output:
 3 powerful resume lines showing skills in reflection, empathy, etiquette, and crisis awareness.
       </pre>
-      <button class="copy-btn" onclick="copyPrompt('text2')">📋 Copy</button>
+      <button class="copy-btn" onclick="copyPrompt('text20')">📋 Copy</button>
     </div>
 
   </details>
@@ -161,7 +361,111 @@ Final Output:
   <details>
     <summary>🧠 Meta & Portfolio Builders</summary>
 
-    <div class="prompt-card" id="prompt3">
+  <div class="prompt-card" id="prompt11">
+    <h3>AI Portfolio Auto-Summarizer</h3>
+    <p><strong>Description:</strong> Generate a clean bio from chat history and skills summary.</p>
+    <pre id="text11">
+You are a prompt assistant trained to summarize a user's journey from previous interactions. Your job is to generate a GitHub-ready portfolio bio.
+
+Steps:
+1. Organize skills from AI, VLSI, writing, emotional support, and prompt engineering
+2. Highlight milestones: certifications, Medium articles, listener training, resume work
+3. End with a 2-line personal vision
+
+Constraints:
+- Be clear and structured
+- Use Markdown paragraph format
+- Do not invent data
+
+Output:
+150-word bio block
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text11')">📋 Copy</button>
+  </div>
+
+  <div class="prompt-card" id="prompt12">
+    <h3>Session Tracker to Skill Map Generator</h3>
+    <p><strong>Description:</strong> Extract what user has learned from their logs and queries.</p>
+    <pre id="text12">
+You are a learning data analyst. Read a set of text logs from a user’s learning journey and extract:
+
+- Topics explored
+- Skills practiced
+- Tools/platforms used
+- Output created (blogs, resumes, pages)
+
+Structure:
+- Markdown list
+- Add timeframes if available
+- Do not paraphrase logs — extract directly
+
+Use Case:
+Used in self-reflection or portfolio documentation
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text12')">📋 Copy</button>
+  </div>
+
+  <div class="prompt-card" id="prompt13">
+    <h3>Prompt Craft Analyzer</h3>
+    <p><strong>Description:</strong> Analyze structure and clarity of a given prompt and give rewrite.</p>
+    <pre id="text13">
+You are an advanced prompt critic. Given a prompt written by a user, return:
+
+- Role identified?
+- Core goal clear?
+- Process steps included?
+- Constraints / Output type given?
+
+Then give a rewritten version:
+- Use the user’s goal
+- Add missing structure
+- Keep tone and intent
+
+Output:
+Critique summary + new prompt (markdown block)
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text13')">📋 Copy</button>
+  </div>
+
+  <div class="prompt-card" id="prompt14">
+    <h3>Prompt Showcase Formatter (for GitHub)</h3>
+    <p><strong>Description:</strong> Converts prompt content into reusable GitHub display blocks.</p>
+    <pre id="text14">
+You are a prompt formatting tool. Given a full structured prompt, convert it into:
+
+- GitHub README block with title, category, description, and prompt
+- Add copy button shortcode
+- Wrap in collapsible <details> tag
+
+Constraints:
+Output in raw HTML or Markdown
+Ready to embed in portfolio or README
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text14')">📋 Copy</button>
+  </div>
+
+  <div class="prompt-card" id="prompt15">
+    <h3>Reflection Prompt (AI Companion)</h3>
+    <p><strong>Description:</strong> Help user reflect weekly on learning, progress, obstacles, and insights.</p>
+    <pre id="text15">
+You are an AI companion helping the user reflect on their learning journey.
+
+Ask:
+1. What new skills or topics did you explore this week?
+2. What did you struggle with or overcome?
+3. What surprised you?
+4. What would you like to improve or shift next week?
+
+Tone:
+Supportive, non-judgmental, curious
+
+Output:
+4 simple numbered questions ready for journaling
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text15')">📋 Copy</button>
+  </div>
+
+    <div class="prompt-card" id="prompt30">
       <h3>AI Portfolio Auto-Summarizer</h3>
       <p><strong>Description:</strong> Generate a portfolio bio from your chat history and learning journey.</p>
       <pre id="text3">
@@ -180,7 +484,7 @@ Constraints:
 Output Format:
 Markdown bio block (100–150 words)
       </pre>
-      <button class="copy-btn" onclick="copyPrompt('text3')">📋 Copy</button>
+      <button class="copy-btn" onclick="copyPrompt('text30')">📋 Copy</button>
     </div>
 
   </details>
