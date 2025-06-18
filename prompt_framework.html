@@ -6,6 +6,27 @@
   <title>Prompt Design Frameworks | Rama Krishna Ketha</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    .stars::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  pointer-events: none;
+  z-index: 0;
+  box-shadow:
+    10vw 20vh white, 25vw 40vh cyan, 40vw 10vh #7fffd4,
+    60vw 50vh #e0ffff, 80vw 30vh #b2ebf2, 90vw 60vh #80deea;
+  animation: blink 4s infinite ease-in-out alternate;
+}
+
+@keyframes blink {
+  0% { opacity: 0.1; transform: scale(0.95); }
+  100% { opacity: 0.4; transform: scale(1.05); }
+}
+
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #121f26;
@@ -73,6 +94,8 @@
   <h1>🧩 Prompt Design Frameworks</h1>
   <p>Systematic thinking for LLMs • by Rama Krishna Ketha</p>
 </header>
+  <div class="stars"></div>
+
 
 <div class="container">
 
