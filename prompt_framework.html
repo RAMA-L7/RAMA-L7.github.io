@@ -6,33 +6,13 @@
   <title>Prompt Design Frameworks | Rama Krishna Ketha</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    .stars::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: transparent;
-  pointer-events: none;
-  z-index: 0;
-  box-shadow:
-    10vw 20vh white, 25vw 40vh cyan, 40vw 10vh #7fffd4,
-    60vw 50vh #e0ffff, 80vw 30vh #b2ebf2, 90vw 60vh #80deea;
-  animation: blink 4s infinite ease-in-out alternate;
-}
-
-@keyframes blink {
-  0% { opacity: 0.1; transform: scale(0.95); }
-  100% { opacity: 0.4; transform: scale(1.05); }
-}
-
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #121f26;
       color: #e0f7fa;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
     }
     header {
       background: #0d1a22;
@@ -49,6 +29,8 @@
       max-width: 920px;
       margin: auto;
       padding: 40px 20px;
+      position: relative;
+      z-index: 2;
     }
     h2 {
       color: #4dd0e1;
@@ -76,6 +58,7 @@
       border-radius: 6px;
       font-family: monospace;
       color: #b2ebf2;
+      margin-top: 10px;
     }
     footer {
       background: #0d1a22;
@@ -85,17 +68,49 @@
       font-size: 14px;
       margin-top: 40px;
       border-top: 1px solid #004d40;
+      z-index: 2;
+      position: relative;
     }
+
+    /* Twinkling lights */
+    .stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  z-index: 0;
+  pointer-events: none;
+}
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #b2ebf2;
+  border-radius: 50%;
+  animation: twinkle 4s infinite ease-in-out;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.1; transform: scale(0.8); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+}
   </style>
 </head>
 <body>
+<div class="stars">
+  <div class="star" style="top:10%;left:20%;animation-delay:0s;"></div>
+  <div class="star" style="top:30%;left:70%;animation-delay:1s;"></div>
+  <div class="star" style="top:50%;left:40%;animation-delay:2s;"></div>
+  <div class="star" style="top:80%;left:80%;animation-delay:3s;"></div>
+  <div class="star" style="top:60%;left:15%;animation-delay:2.5s;"></div>
+  <div class="star" style="top:25%;left:90%;animation-delay:1.5s;"></div>
+</div>
 
 <header>
   <h1>🧩 Prompt Design Frameworks</h1>
-  <p>Systematic thinking for LLMs • by Rama Krishna Ketha</p>
+  <p>Systematic thinking for LLMs</p>
 </header>
-  <div class="stars"></div>
-
 
 <div class="container">
 
@@ -108,32 +123,52 @@
       <li><strong>Instructions:</strong> How the AI should behave or format</li>
       <li><strong>Data:</strong> What content or context to use</li>
     </ul>
-    <pre>You are a resume reviewer. Help me improve this resume line-by-line. Here's the current version: [paste resume]</pre>
+    <pre>
+Role: You are a productivity mentor.
+Objective: Help me reduce distractions during deep work.
+Instructions: Give me 3 tips in list format.
+Data: I get distracted every time I open YouTube or Instagram.
+    </pre>
   </div>
 
   <h2>🧠 R.A.C.E. Prompting</h2>
   <div class="framework-card">
     <ul>
-      <li><strong>Role</strong>: You are a productivity coach</li>
-      <li><strong>Action</strong>: Create a daily schedule</li>
-      <li><strong>Context</strong>: For someone learning VLSI</li>
-      <li><strong>Example</strong>: Include task breakdowns</li>
+      <li><strong>Role</strong>: You are a VLSI Design interview coach</li>
+      <li><strong>Action</strong>: Ask me 3 mock questions on CTS and Floorplanning</li>
+      <li><strong>Context</strong>: I'm preparing for a Synopsys role</li>
+      <li><strong>Example</strong>: Also give sample answers with 2-line explanations</li>
     </ul>
+    <pre>
+Role: VLSI coach
+Action: Create 3 mock questions
+Context: Interview prep for Synopsys
+Example: Show sample answers
+    </pre>
   </div>
 
   <h2>🥪 Sandwich Prompt Method</h2>
   <div class="framework-card">
     <p>This method wraps your prompt in a structure that stabilizes output:</p>
-    <pre>Start by stating your role as an expert. Analyze the input. End with a clarifying question or summary.</pre>
+    <pre>
+As a VLSI expert, analyze the timing ECO I applied. 
+Here’s the ECO flow: [describe flow]
+Do you suggest any additional steps or improvements?
+    </pre>
   </div>
 
   <h2>🔁 Chain-of-Thought + Self-Check</h2>
   <div class="framework-card">
     <p>This structure boosts reasoning and output reliability:</p>
-    <pre>Think step-by-step. List your assumptions. Solve the problem. Then double-check your logic.</pre>
+    <pre>
+Let’s solve this: Why does IR drop affect timing in physical design?
+Step-by-step: 1) Define IR drop, 2) Explain impact on voltage, 
+3) Link to delay, 4) Conclude with timing impact.
+Then, check if anything was missed.
+    </pre>
   </div>
 
-  <h2>🔒 Rama’s Prompt Design Rules</h2>
+  <h2>🔒 More Prompt Design Rules</h2>
   <div class="framework-card">
     <ul>
       <li>🎯 Always define your goal before writing</li>
