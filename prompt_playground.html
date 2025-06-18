@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Prompt Playground | Rama Krishna Ketha</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0e1b24;
+      color: #e0f7fa;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #062433;
+      padding: 40px 20px;
+      text-align: center;
+      border-bottom: 2px solid #00bcd4;
+    }
+    header h1 {
+      color: #00e5ff;
+      font-size: 2.2em;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    details {
+      margin-bottom: 20px;
+      border: 1px solid #00bcd4;
+      border-radius: 10px;
+      background: #09222e;
+      padding: 10px 15px;
+    }
+    summary {
+      font-weight: bold;
+      color: #4dd0e1;
+      cursor: pointer;
+      font-size: 1.2em;
+    }
+    .prompt-card {
+      background: #102a36;
+      border-left: 5px solid #00bcd4;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      position: relative;
+      box-shadow: 0 0 10px rgba(0,255,255,0.08);
+    }
+    .prompt-card h3 {
+      color: #4dd0e1;
+      margin-top: 0;
+    }
+    .prompt-card pre {
+      background: #1a3d47;
+      color: #b2ebf2;
+      padding: 15px;
+      border-radius: 6px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: monospace;
+      margin-top: 10px;
+    }
+    .copy-btn, .test-btn {
+      margin-top: 10px;
+      margin-right: 10px;
+      background: #00acc1;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .copy-btn:hover, .test-btn:hover {
+      background: #008ba3;
+    }
+    footer {
+      background: #062433;
+      color: #80deea;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🧠 Prompt Playground</h1>
+  <p>Explore, Copy, and Test Expert-Level Prompts</p>
+</header>
+
+<div class="container">
+
+  <details open>
+    <summary>✍️ Writing & VLSI Analogies</summary>
+
+    <div class="prompt-card" id="prompt1">
+      <h3>VLSI Concept Explainer as Analogy Writer</h3>
+      <p><strong>Description:</strong> Converts technical stages of Physical Design into real-life analogies.</p>
+      <pre id="text1">
+You are a technical analogy writer with expertise in VLSI Physical Design. Your goal is to explain Floorplanning, Placement, CTS, Routing, and STA by comparing them to real-life scenarios like planning a city, daily routines, or biological systems.
+
+Process:
+- Introduce the technical stage briefly
+- Use a human-life or city analogy
+- Conclude with the takeaway
+
+Quality Gates:
+- Avoid jargon
+- Make it intuitive, memorable, and 3–5 sentences per stage
+
+Output Format:
+Markdown: use bullet points and italics for metaphors
+
+Word Limit:
+Max 500 tokens
+
+Generate all 5 stage analogies in one pass.
+      </pre>
+      <button class="copy-btn" onclick="copyPrompt('text1')">📋 Copy</button>
+    </div>
+
+  </details>
+
+  <details>
+    <summary>💼 Resume & Listener Roles</summary>
+
+    <div class="prompt-card" id="prompt2">
+      <h3>Emotional Support Resume Rewriter</h3>
+      <p><strong>Description:</strong> Turn 7 Cups training into job-winning resume lines.</p>
+      <pre id="text2">
+You are a career coach for mental health and support roles. The user has completed an active listening course on 7 Cups and scored 42/46.
+
+Objective:
+Transform this achievement into 3 resume-ready bullet points.
+
+Constraints:
+- Each point starts with a strong action verb
+- Include one measurable or outcome-focused phrase
+
+Tone:
+Professional and compassionate
+
+Output Format:
+- Bullet list in Markdown
+- Avoid repeating “helped” or “supported” too often
+
+Final Output:
+3 powerful resume lines showing skills in reflection, empathy, etiquette, and crisis awareness.
+      </pre>
+      <button class="copy-btn" onclick="copyPrompt('text2')">📋 Copy</button>
+    </div>
+
+  </details>
+
+  <details>
+    <summary>🧠 Meta & Portfolio Builders</summary>
+
+    <div class="prompt-card" id="prompt3">
+      <h3>AI Portfolio Auto-Summarizer</h3>
+      <p><strong>Description:</strong> Generate a portfolio bio from your chat history and learning journey.</p>
+      <pre id="text3">
+You are a prompt assistant trained to summarize a user's journey from previous interactions. Your job is to generate a GitHub-ready portfolio bio.
+
+Steps:
+1. Read and organize skills from AI, VLSI, writing, emotional support, and prompt engineering
+2. Highlight milestones: certifications, training, articles, etc.
+3. End with an inspiring 2-line personal statement
+
+Constraints:
+- Be clear and structured
+- Do not invent facts
+- Use past prompts or session summaries only
+
+Output Format:
+Markdown bio block (100–150 words)
+      </pre>
+      <button class="copy-btn" onclick="copyPrompt('text3')">📋 Copy</button>
+    </div>
+
+  </details>
+
+</div>
+
+<footer>
+  Designed by Rama Krishna Ketha • Prompt Playground • © 2025
+</footer>
+
+<script>
+function copyPrompt(id) {
+  const text = document.getElementById(id).textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    alert("✅ Prompt copied to clipboard!");
+  });
+}
+</script>
+
+</body>
+</html>
