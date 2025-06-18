@@ -96,6 +96,231 @@
 
 <div class="container">
 
+    <details open>
+  <summary>🛠️ Advanced Prompt Templates (Meta / Tools / System)</summary>
+
+  <div class="prompt-card" id="prompt21">
+    <h3>Meta Prompt: Design a Prompt Generator</h3>
+    <p><strong>Description:</strong> Create a template prompt that builds other task-specific prompts.</p>
+    <pre id="text21">
+You are a prompt architect assistant. Design a flexible prompt template that allows users to define:
+
+- Role
+- Task Objective
+- Format Constraints
+- Context/Data
+- Output Tone
+
+The output should be:
+- A reusable prompt structure (with [variables])
+- A sample prompt filled in
+
+Format:
+Markdown block + example
+
+Use case:
+Great for teaching others how to build scalable prompt structures
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text21')">📋 Copy</button>
+  </div>
+
+  <div class="prompt-card" id="prompt22">
+    <h3>Self-Critiquing Prompt Validator</h3>
+    <p><strong>Description:</strong> Evaluate a prompt’s strength and revise weak points.</p>
+    <pre id="text22">
+You are an AI prompt validator. When given a prompt, return:
+
+1. Summary of what it’s trying to do
+2. What’s missing or ambiguous?
+3. Rewrite suggestion (more clarity, structure, constraints)
+4. Optional: Estimate risk of hallucination or vague output
+
+Use for:
+Prompt refinement, reviews, training AI usage best practices
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text22')">📋 Copy</button>
+  </div>
+
+  <div class="prompt-card" id="prompt23">
+    <h3>Token-Efficient Prompt Composer</h3>
+    <p><strong>Description:</strong> Help write long prompts with precise scope and limits.</p>
+    <pre id="text23">
+You are a token-efficient prompt composer. Help the user rewrite a long prompt by:
+
+- Removing redundancy
+- Combining instructions
+- Keeping key constraints
+- Staying under 300 tokens
+
+Output:
+- Original prompt (collapsed view)
+- Optimized version
+- Token count comparison
+
+Use Case:
+Good for OpenAI/Claude or API users optimizing cost
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text23')">📋 Copy</button>
+  </div>
+
+  <div class="prompt-card" id="prompt24">
+    <h3>Persona Prompt Designer (Multimodal)</h3>
+    <p><strong>Description:</strong> Design prompts that simulate real human personalities or styles.</p>
+    <pre id="text24">
+You are a persona prompt designer. Help users create a persona-based prompt.
+
+Prompt inputs:
+- Target role (coach, poet, scientist)
+- Language/tone style (friendly, formal, spiritual)
+- Output format (markdown, dialogue, blog)
+- Memory or personality reference (optional)
+
+Output:
+- Final persona prompt in reusable block
+- Optional test phrase to invoke the style
+
+Useful in:
+Creative writing, branding AI tools, interactive AI agents
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text24')">📋 Copy</button>
+  </div>
+
+  <div class="prompt-card" id="prompt25">
+    <h3>Tool-Aware Prompt Generator (e.g., ChatGPT with Plugins, Bard, etc.)</h3>
+    <p><strong>Description:</strong> Builds prompts based on tool capabilities and constraints.</p>
+    <pre id="text25">
+You are a prompt engineer assistant building prompts for different AI tools.
+
+Given:
+- Tool name (e.g., ChatGPT w/ Plugins, Claude, Gemini)
+- Features available (memory, retrieval, browsing, coding)
+- Limits (token count, output length)
+
+Output:
+- Tailored prompt that leverages tool’s strengths
+- Tips to reduce failure or incomplete output
+
+Use this for:
+Tool-specific workflows, automation agents, multi-AI comparisons
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text25')">📋 Copy</button>
+  </div>
+
+</details>
+
+
+    <details>
+  <summary>⚙️ VLSI Deep Engineering Prompts</summary>
+
+  <div class="prompt-card" id="prompt16">
+    <h3>Design Flow Explainer (with Contextual Logic)</h3>
+    <p><strong>Description:</strong> Explain the VLSI Physical Design flow using dependencies and transitions.</p>
+    <pre id="text16">
+You are a VLSI design mentor. Teach the Physical Design flow with logic-based sequencing between each stage.
+
+Objective:
+Explain the why + what behind: Floorplan → Power Plan → Placement → CTS → Routing → STA
+
+Process:
+- Start with a 1-line definition of each stage
+- Follow with “Why this comes next?”
+- Add key constraints that carry over (e.g., macro locations, IR drop)
+
+Format:
+- Markdown steps (1 to 6)
+- End with a short “what-if” reflection (e.g., what if placement is skipped?)
+
+Tone:
+Clear, technical, brief
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text16')">📋 Copy</button>
+  </div>
+
+  <div class="prompt-card" id="prompt17">
+    <h3>Timing Closure Debug Assistant</h3>
+    <p><strong>Description:</strong> Guide through debugging a failing setup or hold path with context.</p>
+    <pre id="text17">
+You are a VLSI timing closure expert. The user has a failing setup path post-routing.
+
+Guide them with:
+- Questions to ask
+- Tools to analyze
+- Trade-offs in fixing setup vs. hold
+- What metrics to recheck after fix
+
+Add:
+Short checklist template to track timing fixes
+
+Output Format:
+Bullet list with optional table (violation | cause | fix attempt)
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text17')">📋 Copy</button>
+  </div>
+
+  <div class="prompt-card" id="prompt18">
+    <h3>Power Integrity vs. Timing Interaction Explainer</h3>
+    <p><strong>Description:</strong> Explain how IR drop and EM affect STA and reliability.</p>
+    <pre id="text18">
+You are a senior signoff analyst. Explain the interaction between power grid issues and timing failures.
+
+Steps:
+1. Define IR drop + EM
+2. Show how voltage degradation → delay increase
+3. Mention role of .lib corners and ECOs
+4. Suggest fixes (macro placement, width boost)
+
+Output:
+- Short explanation paragraph
+- Optional diagram table (cause | impact | solution)
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text18')">📋 Copy</button>
+  </div>
+
+  <div class="prompt-card" id="prompt19">
+    <h3>Clock Tree Exploration (Style Comparer)</h3>
+    <p><strong>Description:</strong> Compare H-tree, spine, and fishbone CTS styles in layout/timing context.</p>
+    <pre id="text19">
+You are a clock network architect. Compare 3 CTS methods:
+
+- H-tree
+- Fishbone
+- Spine/mesh hybrid
+
+Criteria:
+- Area overhead
+- Power delivery
+- Skew/jitter control
+- Suitability for hierarchical design
+
+Format:
+Markdown table (method | benefit | drawback | use case)
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text19')">📋 Copy</button>
+  </div>
+
+  <div class="prompt-card" id="prompt20">
+    <h3>VLSI Interview Generator</h3>
+    <p><strong>Description:</strong> Create mock questions based on a PD stage with answers and insights.</p>
+    <pre id="text20">
+You are a VLSI interview coach. Generate 5 technical + 2 behavioral questions on one Physical Design topic (e.g., Placement or STA).
+
+For each:
+- State the question
+- Give model answer
+- Add follow-up or common mistake
+
+Output:
+Markdown list with bold question headers
+
+Token Range:
+Max 800 tokens
+    </pre>
+    <button class="copy-btn" onclick="copyPrompt('text20')">📋 Copy</button>
+  </div>
+
+</details>
+
+
   <details open>
     <summary>✍️ Writing & VLSI Analogies</summary>
 
