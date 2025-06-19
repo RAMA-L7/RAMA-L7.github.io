@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Floorplanning | VLSI Learning Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0a1929;
+      color: #e0f7fa;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: radial-gradient(#00e5ff33 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: bgGrid 60s linear infinite;
+      z-index: 0;
+      opacity: 0.05;
+    }
+
+    @keyframes bgGrid {
+      0% { background-position: 0 0; }
+      100% { background-position: 200px 200px; }
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 30px;
+      background: #062433;
+      border-bottom: 2px solid #00acc1;
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: 2.4em;
+      color: #00e5ff;
+      margin: 0;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .content h2 {
+      color: #4dd0e1;
+      font-size: 1.5em;
+      border-bottom: 1px dashed #00e5ff77;
+      padding-bottom: 6px;
+      margin-top: 40px;
+    }
+
+    .content p {
+      font-size: 1em;
+      line-height: 1.6em;
+      margin-top: 12px;
+    }
+
+    .content ul {
+      margin-top: 12px;
+      padding-left: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #062433;
+      color: #80deea;
+      font-size: 0.9em;
+      margin-top: 60px;
+      z-index: 1;
+      position: relative;
+    }
+
+    .content {
+  max-width: 960px;
+  margin: 60px auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.diagram {
+  background: #0c2736;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00e5ff44;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chip-layout {
+  width: 320px;
+  height: 320px;
+  position: relative;
+  background: #102a36;
+  border: 2px solid #00e5ff;
+  border-radius: 8px;
+}
+
+.label {
+  position: absolute;
+  font-size: 0.75em;
+  color: #80deea;
+  background: rgba(0,229,255,0.1);
+  padding: 2px 6px;
+  border-radius: 6px;
+  border: 1px solid #00e5ff33;
+}
+.label.io { top: -25px; left: 90px; }
+.label.macros { top: 10px; left: 10px; }
+.label.core { top: 140px; left: 80px; }
+.label.power { bottom: -25px; left: 70px; font-style: italic; }
+
+.macros {
+  display: flex;
+  gap: 6px;
+  position: absolute;
+  top: 40px;
+  left: 20px;
+}
+.macro {
+  width: 60px;
+  height: 40px;
+  background: #00838f;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7em;
+  color: #fff;
+}
+
+.core-area {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+  position: absolute;
+  top: 110px;
+  left: 20px;
+  right: 20px;
+  bottom: 60px;
+}
+
+.cell {
+  width: 100%;
+  height: 30px;
+  background: #1f3948;
+  border: 1px solid #00e5ff33;
+  border-radius: 2px;
+}
+
+.flip-box {
+  width: 320px;
+  height: 320px;
+  perspective: 1000px;
+}
+.flip-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: flipIn 2s ease-out forwards;
+  animation-delay: 1s;
+}
+@keyframes flipIn {
+  0% { transform: rotateY(180deg); }
+  100% { transform: rotateY(0deg); }
+}
+
+
+  </style>
+</head>
+<body>
+
+<header style="background:#062433; padding:60px 40px; text-align:center; border-bottom:2px solid #00bcd4;">
+  <h1 style="color:#00e5ff; font-size:2.2em; margin-bottom:10px;">Floorplanning</h1>
+  
+  <p style="margin: 15px 0 30px; color:#80deea; font-size:1em;">
+    <strong>                 </strong>
+  </p>
+
+  <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+    <a href="floorplan_terms_animated.html" style="
+      color:#00f2ff;
+      font-weight:bold;
+      background:#102a36;
+      padding:10px 20px;
+      border-radius:8px;
+      text-decoration:none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 0 transparent;
+    " onmouseover="this.style.boxShadow='0 0 15px #00f2ff99'" onmouseout="this.style.boxShadow='0 0 0 transparent'">
+      📘 Explore Floorplan Terminologies →
+    </a>
+  </div>
+    
+
+</header>
+
+
+<div class="content">
+  <h2>Overview</h2>
+  <p>Floorplanning is the blueprint phase of VLSI Physical Design. It defines the layout of the chip, including macro placement, IO pad locations, power grid structure, and the overall die area. A well-structured floorplan improves routability, minimizes congestion, and enhances timing performance.</p>
+
+<div class="content">
+  <h2>Blueprint-Style Visual Layout (Auto Flip)</h2>
+  <p>This updated diagram visually flips in when the page loads, revealing the chip layout: macros, IO ring, standard cell area, and power rails.</p>
+
+  <div class="diagram">
+    <div class="flip-box">
+      <div class="flip-inner">
+        <div class="chip-layout">
+          <div class="label io">IO Pad Ring</div>
+          <div class="label macros">Macro Blocks</div>
+          <div class="label core">Standard Cell Core Area</div>
+          <div class="label power">Power Rings & Straps</div>
+
+          <div class="macros">
+            <div class="macro">MACRO1</div>
+            <div class="macro">MACRO2</div>
+          </div>
+
+          <div class="core-area">
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <h2>Key Tasks</h2>
+  <ul>
+    <li>Macro and hard IP placement</li>
+    <li>Creating placement and routing blockages</li>
+    <li>Defining placement rows and core utilization</li>
+    <li>Power ring and strap planning</li>
+    <li>Defining keep-out zones and feedthroughs</li>
+  </ul>
+
+  <h2>Common Tools</h2>
+  <ul>
+    <li>Synopsys ICC2 / Fusion Compiler</li>
+    <li>Cadence Innovus</li>
+    <li>Mentor Olympus-SoC</li>
+  </ul>
+
+  <h2>Challenges & Fixes</h2>
+  <ul>
+    <li><strong>Challenge:</strong> Congestion around macros</li>
+    <li><strong>Fix:</strong> Insert routing blockages + increase halo spacing</li>
+    <li><strong>Challenge:</strong> Uneven power delivery</li>
+    <li><strong>Fix:</strong> Adjust strap width and number</li>
+  </ul>
+</div>
+
+<footer>
+  VLSI Learning Lab · Floorplanning · © 2025 Rama Krishna Ketha
+</footer>
+
+</body>
+</html>
+"""
+
+# Save to downloadable file
+floorplan_path = "/mnt/data/floorplanning.html"
+with open(floorplan_path, "w") as f:
+    f.write(floorplanning_page)
+
+floorplan_path
