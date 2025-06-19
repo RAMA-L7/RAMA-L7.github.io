@@ -1,6 +1,19 @@
 
 <!DOCTYPE html>
 <html lang="en">
+    <style>
+/* 🔄 Scroll Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
 <head>
   <meta charset="UTF-8" />
   <title>Prompt Engineering Portfolio | Rama Krishna Ketha</title>
@@ -94,6 +107,20 @@
       font-size: 14px;
     }
   </style>
+
+  <style>
+/* 🔄 Scroll Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
 </head>
 <body>
 
@@ -132,6 +159,83 @@
     </a>
   </div>
 </header>
+
+<!-- 🌐 Responsive Navigation Bar with Toggle -->
+<style>
+  .navbar {
+    background: #0d1a22;
+    border-bottom: 1px solid #00bcd4;
+    box-shadow: 0 0 10px #00e5ff33;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    padding: 12px 20px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    color: #00e5ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: text-shadow 0.3s;
+  }
+
+  .nav-links a:hover {
+    text-shadow: 0 0 10px #00f2ff;
+  }
+
+  .hamburger {
+    display: none;
+    font-size: 24px;
+    color: #00f2ff;
+    cursor: pointer;
+    text-align: right;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      margin-top: 10px;
+    }
+
+    .nav-links.show {
+      display: flex;
+    }
+
+    .hamburger {
+      display: block;
+      text-align: right;
+      margin-bottom: 8px;
+    }
+  }
+</style>
+
+<nav class="navbar">
+  <div class="hamburger" onclick="toggleMenu()">☰ Menu</div>
+  <div class="nav-links" id="navMenu">
+    <a href="index.html">🏠 Home</a>
+    <a href="prompt_portfolio.html">📂 Portfolio</a>
+    <a href="prompt_framework.html">🧩 Frameworks</a>
+    <a href="prompt_playground.html">🧠 Playground</a>
+    <a href="RAMA%20KRISHNA%20KETHA.pdf" target="_blank">📄 Resume</a>
+  </div>
+</nav>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("navMenu");
+    menu.classList.toggle("show");
+  }
+</script>
+
 
 <div class="container">
   <section style="animation-delay: 0.4s">
@@ -182,6 +286,24 @@
 <footer>
   Prompt Engineering Page by Rama Krishna Ketha • © 2025
 </footer>
+
+<script>
+function revealOnScroll() {
+  const elements = document.querySelectorAll('.reveal');
+  const windowHeight = window.innerHeight;
+
+  elements.forEach(el => {
+    const elementTop = el.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 100) {
+      el.classList.add('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+</script>
+
 
 </body>
 </html>
