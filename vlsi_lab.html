@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VLSI Learning Lab — Flip Card Edition</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0a1929;
+      color: #e0f7fa;
+      overflow-x: hidden;
+    }
+
+    /* Background netlist-style animation */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: radial-gradient(#00e5ff33 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: bgMove 60s linear infinite;
+      z-index: 0;
+      opacity: 0.05;
+    }
+
+    @keyframes bgMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 200px 200px; }
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background: #062433;
+      border-bottom: 2px solid #00acc1;
+      z-index: 1;
+      position: relative;
+    }
+
+    header h1 {
+      color: #00e5ff;
+      font-size: 2.4em;
+    }
+
+    .lab-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 60px 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .flip-card {
+      background-color: transparent;
+      width: 280px;
+      height: 200px;
+      perspective: 1000px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      backface-visibility: hidden;
+      box-shadow: 0 0 15px #00e5ff33;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .flip-card-front {
+      background-color: #102a36;
+      color: #00e5ff;
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+
+    .flip-card-back {
+      background-color: #0c2736;
+      color: #b2ebf2;
+      transform: rotateY(180deg);
+      font-size: 0.95em;
+      line-height: 1.4em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #062433;
+      color: #80deea;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🔧 VLSI Learning Lab — Flip Card Edition</h1>
+</header>
+
+<div class="lab-container">
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">📘 RTL</div>
+      <div class="flip-card-back">
+        RTL (Register Transfer Level) is the design abstraction where digital logic is described in HDL. It defines system behavior in terms of data flow between registers and operations.
+      </div>
+    </div>
+  </div>
+  
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">🔗 Logic Synthesis</div>
+      <div class="flip-card-back">
+        Synthesizes RTL into a gate-level netlist using standard cells. It applies optimization for area, power, and timing while preserving functionality.
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">📐 Floorplanning</div>
+      <div class="flip-card-back">
+        Defines the physical layout: macro placement, IO pin locations, and block boundaries. It impacts congestion, timing, and routing complexity significantly.
+      </div>
+    </div>
+  </div>
+  
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">⚡ Power Planning</div>
+      <div class="flip-card-back">
+        Builds the VDD and VSS network using rings, straps, and rails. It ensures uniform power delivery and prepares the chip for EM/IR checks and tap cell insertion.
+      </div>
+    </div>
+  </div>
+  
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">🧩 Placement</div>
+      <div class="flip-card-back">
+        Places standard cells on legal sites while minimizing wirelength and satisfying timing. It’s the foundation for a congestion-free layout.
+      </div>
+    </div>
+  </div>
+  
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">⏰ CTS</div>
+      <div class="flip-card-back">
+        Clock Tree Synthesis ensures the clock signal reaches all sequential elements with balanced skew and minimal latency. Buffers and inverters are inserted strategically.
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">🛠 Routing</div>
+      <div class="flip-card-back">
+        Establishes all physical connections between logic cells across multiple metal layers. Considers DRC rules, via counts, and path delays.
+      </div>
+    </div>
+  </div>
+  
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">🚦 STA & Signoff</div>
+      <div class="flip-card-back">
+        Static Timing Analysis checks setup/hold violations. Signoff includes LVS, DRC, IR drop, EM, and checks for tapeout readiness.
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  VLSI Learning Lab © 2025 · Built by Rama Krishna Ketha
+</footer>
+
+</body>
+</html>
+"""
+
