@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Floorplanning Terminology Cards</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      background: #0a1929;
+      font-family: 'Segoe UI', sans-serif;
+      color: #e0f7fa;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: linear-gradient(90deg, #00e5ff11 1px, transparent 1px),
+                        linear-gradient(0deg, #00e5ff11 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: bgGridMove 60s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes bgGridMove {
+      from { background-position: 0 0; }
+      to { background-position: 200px 200px; }
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #00e5ff;
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .flip-card {
+      background-color: transparent;
+      width: 260px;
+      height: 180px;
+      perspective: 1000px;
+      animation: fadeSlideIn 1s ease-out;
+    }
+
+    @keyframes fadeSlideIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 15px #00e5ff33;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95em;
+      line-height: 1.4em;
+      transition: box-shadow 0.3s;
+    }
+
+    .flip-card-front {
+      background-color: #102a36;
+      color: #00e5ff;
+      font-weight: bold;
+    }
+
+    .flip-card-back {
+      background-color: #0c2736;
+      color: #b2ebf2;
+      transform: rotateY(180deg);
+    }
+
+    .flip-card:hover .flip-card-front {
+      box-shadow: 0 0 20px #00e5ff88;
+    }
+  </style>
+</head>
+<body>
+
+<div class="section">
+  <h2>📘 Floorplanning Terminologies</h2>
+  <div class="cards-container">
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">Macro</div><div class="flip-card-back">Pre-designed large block like SRAM or PLL, placed during floorplan.</div></div></div>
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">IP Block</div><div class="flip-card-back">Reusable design unit such as USB, PCIe, or processor core.</div></div></div>
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">Standard Cell</div><div class="flip-card-back">Basic gates (AND, OR, INV, FF) placed during PnR stage.</div></div></div>
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">Tap Cell</div><div class="flip-card-back">Connects substrate to ground to prevent latch-up issues.</div></div></div>
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">End Cap Cell</div><div class="flip-card-back">Placed at ends of standard cell rows for structural closure.</div></div></div>
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">Decap Cell</div><div class="flip-card-back">Provides decoupling capacitance to stabilize local power grid.</div></div></div>
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">Spare Cell</div><div class="flip-card-back">Logic gates inserted for future engineering change orders (ECOs).</div></div></div>
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">Tie High/Low</div><div class="flip-card-back">Used to tie signals safely to logic '1' or '0' level.</div></div></div>
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">Filler Cell</div><div class="flip-card-back">Fills gaps between standard cells to meet DRC and metal continuity.</div></div></div>
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">Keepout Margin</div><div class="flip-card-back">Reserved region around macros or IOs to avoid overlaps or congestion.</div></div></div>
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">Placement Blockage</div><div class="flip-card-back">Prevents cells from being placed in designated areas to reduce routing congestion.</div></div></div>
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">Ports</div><div class="flip-card-back">Logical interface pins used for connecting signals into/out of the design.</div></div></div>
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">Core Utilization</div><div class="flip-card-back">Percentage of core area occupied by placed cells vs total available area.</div></div></div>
+  </div>
+</div>
+
+</body>
+</html>
