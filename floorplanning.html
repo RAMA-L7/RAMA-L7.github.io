@@ -219,8 +219,7 @@
   <p>Floorplanning is the blueprint phase of VLSI Physical Design. It defines the layout of the chip, including macro placement, IO pad locations, power grid structure, and the overall die area. A well-structured floorplan improves routability, minimizes congestion, and enhances timing performance.</p>
 
 <div class="content">
-  <h2>Blueprint-Style Visual Layout (Auto Flip)</h2>
-  <p>This updated diagram visually flips in when the page loads, revealing the chip layout: macros, IO ring, standard cell area, and power rails.</p>
+  <h2>Blueprint-Style Visual Layout </h2>
 
   <div class="diagram">
     <div class="flip-box">
@@ -229,7 +228,7 @@
           <div class="label io">IO Pad Ring</div>
           <div class="label macros">Macro Blocks</div>
           <div class="label core">Standard Cell Core Area</div>
-          <div class="label power">Power Rings & Straps</div>
+          <div class="label power">Chip Layout</div>
 
           <div class="macros">
             <div class="macro">MACRO1</div>
@@ -250,6 +249,13 @@
   </div>
 </div>
 
+<iframe src="floorplan_pipeline.html"
+        width="100%"
+        height="2200"
+        frameborder="0"
+        scrolling="no"
+        style="overflow: hidden;"></iframe>
+
   <h2>Key Tasks</h2>
   <ul>
     <li>Macro and hard IP placement</li>
@@ -266,12 +272,132 @@
     <li>Mentor Olympus-SoC</li>
   </ul>
 
-  <h2>Challenges & Fixes</h2>
+  
   <ul>
-    <li><strong>Challenge:</strong> Congestion around macros</li>
-    <li><strong>Fix:</strong> Insert routing blockages + increase halo spacing</li>
-    <li><strong>Challenge:</strong> Uneven power delivery</li>
-    <li><strong>Fix:</strong> Adjust strap width and number</li>
+    <meta charset="UTF-8">
+  <title>Floorplanning Challenges - VLSI Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      background: #0a1929;
+      color: #e0f7fa;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .challenges-section {
+      max-width: 960px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    .challenges-section h2 {
+      color: #00e5ff;
+      font-size: 2em;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .challenge {
+      background: #0c2736;
+      border-left: 4px solid #00e5ff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00e5ff33;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .challenge.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .challenge h3 {
+      color: #4dd0e1;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .challenge p {
+      margin: 8px 0;
+      line-height: 1.6em;
+    }
+  </style>
+</head>
+<body>
+
+<div class="challenges-section">
+  <h2>🧠 Real-Time Floorplanning Challenges</h2>
+
+  <div class="challenge">
+    <h3>🔧 Macro Orientation Caused Routing Congestion</h3>
+    <p><strong>Problem:</strong> I placed two SRAM macros close together to save wirelength. But during trial route and congestion analysis, a red hotspot appeared between them. The congestion map showed routing tracks were heavily blocked in that region.</p>
+    <p><strong>Why It Happened:</strong> I didn’t account for the macro pins facing each other. The pins were located on the inner edges, which meant all the standard cells routed between them were trying to access tight pin locations from both sides — leading to severe congestion.</p>
+    <p><strong>How I Solved It:</strong> I opened the congestion map view in Innovus and noticed that >90% of available tracks were being used near that area. I rotated one macro 180° so both macros had pins facing outward. Then I added a 5µm physical-only blockage between them. This gave the router more open channels. I validated the fix by re-running global route and checking congestion overlays. My mentor also suggested checking pin accessibility via <code> report_pin_accessibility</code>. The fix reduced congestion significantly.</p>
+  </div>
+
+  <div class="challenge">
+    <h3>🔧 IR Drop Issues in Corner Standard Cells</h3>
+    <p><strong>Problem:</strong> After initial power planning, the IR drop report showed that some standard cells in the chip’s corners had voltages dropping below the allowed limit. It was confusing, because power straps looked evenly distributed.</p>
+    <p><strong>Why It Happened:</strong> The corners were isolated from primary straps due to routing blockages, and via drops were higher in those zones. Also, tap cells and filler rows didn’t get proper power routing in those edges.</p>
+    <p><strong>How I Solved It:</strong> I ran EM/IR analysis using Voltus and overlaid the IR drop map. With help from the power engineer, I found the corner vias were underutilized. I manually inserted wider VDD/VSS straps in corners using <code>create_power_straps -nets {VDD VSS} </code> and increased via count using add_via_array. I also disabled routing blockages temporarily to allow power net extension. After rechecking IR, all cells were now within the voltage spec. Lesson: corners often get neglected in uniform grid planning — they need special attention.</p>
+  </div>
+
+  <div class="challenge">
+    <h3>🔧 Clock Port Misplacement Affected Skew</h3>
+    <p><strong>Problem:</strong> During CTS, one of the clock groups showed huge insertion delay (~1200ps) from the clock port to the leaf cells. The skew was above 500ps, which violated constraints.</p>
+    <p><strong>Why It Happened:</strong> The clock port was placed near the IO corner and far from the central clock spine. The buffers inserted couldn’t balance the long route to multiple sequential cells.</p>
+    <p><strong>How I Solved It:</strong> I analyzed the timing path using report_clock_tree and traced the clock net on the layout viewer. I saw that the port was too far from any other sink. I moved the port closer to the core and aligned it along the main horizontal strap. After that, I re-ran CTS using <code>create_clock_tree_spec</code> and saw delay reduced to 300ps and skew under 100ps. My senior explained that early-stage port placement directly affects CTS QoR — this was a valuable learning.</p>
+  </div>
+
+  <div class="challenge">
+    <h3>🔧 88% Core Utilization Created Legalization Problems</h3>
+    <p><strong>Problem:</strong> We initially set the block utilization to 88% to meet tight area targets. But during placement and timing ECO, it became a nightmare — the tool couldn’t find legal sites to insert buffers, and hold violations increased.</p>
+    <p><strong>Why It Happened:</strong> Too little whitespace meant no margin for buffer insertion, spare cell usage, or legal cell swaps. Even filler cells had trouble fitting in narrow gaps.</p>
+    <p><strong>How I Solved It:</strong> After discussing with my mentor, we reduced the floorplan utilization to 75%. In Innovus, I adjusted the core area using edit_core_area and redefined row utilization via floorplan -core_util 0.75. I also inserted dedicated filler and spare cell rows between macro islands. The placement tools now had room to move, and hold buffer insertion succeeded. This experience taught me that core utilization must balance timing flexibility, not just die size.</p>
+  </div>
+
+  <div class="challenge">
+    <h3>🔧 Forgot Keepout Margin Around Macros</h3>
+    <p><strong>Problem:</strong> Standard cells were getting placed right next to macros, and later in the flow, I got placement DRCs and pin accessibility issues.</p>
+    <p><strong>Why It Happened:</strong> I didn’t set any keepout margins — areas where no other cells should be placed near macros. The router couldn’t access some macro pins due to blockage from standard cells.</p>
+    <p><strong>How I Solved It:</strong> I created a physical-only blockage around each macro using create_placement_blockage -type soft -bbox. I also applied 5µm margin on all four sides, depending on pin locations. After this, standard cells were automatically restricted from overlapping. The DRCs vanished. My mentor emphasized this is a must for every macro with tight pin density.</p>
+  </div>
+
+  <div class="challenge">
+    <h3>🔧 Wrong Use of Routing Blockage Caused Legalization Failures</h3>
+    <p><strong>Problem:</strong> Legalization failed in one region with a strange tool error — “no legal site for placement.” I was confused because the floorplan looked empty in that zone.</p>
+    <p><strong>Why It Happened:</strong> I had accidentally applied routing blockages instead of placement blockages. The tool thought it could place cells, but during legalization, it found those locations were invalid for standard cells.</p>
+    <p><strong>How I Solved It:</strong> I opened the blockage view and found I had set create_routing_blockage instead of create_placement_blockage -type hard. I corrected it and also marked the macro top and bottom rows as “unplaceable”. After that, legalization worked. I learned that every blockage has a purpose — and it’s important to label them right, or tools will act unexpectedly.</p>
+  </div>
+
+  <div class="challenge">
+    <h3>🔧 Missing Tie Cells Raised Functional Warnings</h3>
+    <p><strong>Problem:</strong> Post-placement DRC showed floating logic inputs, with warnings saying "missing tie-high" and "tie-low cell not defined". I hadn’t added any of these cells.</p>
+    <p><strong>Why It Happened:</strong> Some nets in the netlist were tied to constant 1 or 0 — but not using proper cells. This creates unreliable voltage and could lead to functional bugs.</p>
+    <p><strong>How I Solved It:</strong> I checked the netlist and marked which nets were constant-driven. I then inserted tie-high and tie-low cells from the standard cell library using add_tie_cell commands in the floorplan phase. I also grouped these cells into special tie cell rows to avoid placement near clocks. After that, re-running DRC gave a clean pass.p>
+  </div>
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.challenge').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+
+</body>
   </ul>
 </div>
 
