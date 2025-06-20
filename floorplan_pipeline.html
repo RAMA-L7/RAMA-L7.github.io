@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Floorplanning Challenges - VLSI Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* 🔄 Grid animation background */
+    body {
+      margin: 0;
+      background: #0a1929;
+      color: #e0f7fa;
+      font-family: 'Segoe UI', sans-serif;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      background-image: radial-gradient(#02e5f922 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: moveGrid 50s linear infinite;
+      opacity: 0.06;
+    }
+
+    @keyframes moveGrid {
+      0% { background-position: 0 0; }
+      100% { background-position: 200px 200px; }
+    }
+
+    .flow-section {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .flow-section h2 {
+      color: #00e5ff;
+      font-size: 2em;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .timeline {
+      position: absolute;
+      left: 50%;
+      top: 5;
+      transform: translateX(-50%);
+      width: 4px;
+      height:calc(100% - 180px);
+      background-color: #03d9fe;
+      animation: pulseGlow 2s infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%   { box-shadow: 0 0 6px #00e5ff; }
+      50%  { box-shadow: 0 0 20px #00e5ff; }
+      100% { box-shadow: 0 0 6px #00e5ff; }
+    }
+
+    .flow-step {
+      position: relative;
+      width: 600px;
+      margin: 60px auto;
+      padding: 20px 25px;
+      background: #0c2736;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #00e5ff33;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .flow-step::before {
+      content: '\2726'; /* ✦ star icon */
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -30px;
+      font-size: 16px;
+      color: #00e5ff;
+      background: #0a1929;
+      padding: 4px;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #00e5ff;
+    }
+
+    .flow-step.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .flow-step:hover {
+      box-shadow: 0 0 20px #00e5ff88;
+      transition: box-shadow 0.3s ease;
+      background: #103344;
+    }
+
+    .flow-step h3 {
+      color: #4dd0e1;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .flow-step p {
+      line-height: 1.6em;
+      margin: 0;
+      text-align: center;
+    }
+
+    body {
+  margin: 0;
+  background: #0a1929;
+  color: #e0f7fa;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  overflow-x: hidden; /* ✅ Prevent horizontal scrollbar */
+  overflow-y: auto;   /* ✅ Allow vertical scrolling if necessary */
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="flow-section">
+    <h2> Floorplanning Flow — Pipeline View</h2>
+    <ul>
+    <div class="timeline"></div>
+
+    <div class="flow-step">
+      <h3>1. Read Input Files</h3>
+      <p>Import LEF, tech LEF, Verilog netlist, SDC constraints, floorplan.tcl, and optionally DEF from synthesis.</p>
+    </div>
+
+    <div class="flow-step">
+      <h3>2. Define Core Area & IO Ring</h3>
+      <p>Define the core size using die size and utilization. Place IO pads around the boundary as per pad ring definition.</p>
+    </div>
+
+    <div class="flow-step">
+      <h3>3. Logical Port Placement</h3>
+      <p>Position logical input/output ports near their corresponding macros or logic groups to reduce wirelength and congestion.</p>
+    </div>
+
+    <div class="flow-step">
+      <h3>4. Place Macros & IP Blocks</h3>
+      <p>Insert macros (SRAMs, PLLs, etc.) with pin orientation planning and keepout margins. Ensure symmetry and spacing.</p>
+    </div>
+
+    <div class="flow-step">
+      <h3>5. Apply Channel Spacing & Keepout Margins</h3>
+      <p>Define spacing between macros and around corners. Use soft or physical-only blockages to reserve routing paths.</p>
+    </div>
+
+    <div class="flow-step">
+      <h3>6. Set Utilization and Generate Core Rows</h3>
+      <p>Set utilization (usually 60–80%) and create standard cell rows for placement inside the defined core area.</p>
+    </div>
+
+    <div class="flow-step">
+      <h3>7. Insert Physical Cells</h3>
+      <p>Add tap cells, end cap cells, filler cells, decap cells, and spare cells to meet DRC, latch-up, and ECO readiness.</p>
+    </div>
+
+    <div class="flow-step">
+      <h3>8. Apply Placement Constraints</h3>
+      <p>Use region constraints, symmetry groups, placement blockages, and guide definitions for controlled placement.</p>
+    </div>
+
+    <div class="flow-step">
+      <h3>9. Run IO Pin Placement / Refinement</h3>
+      <p>Align IO pins with port locations. Use pin planning scripts or tools to optimize access, avoid corners, and reduce skew.</p>
+    </div>
+
+    <div class="flow-step">
+      <h3>10. Run Floorplan-Level Checks</h3>
+      <p>Run DRC, IR drop early checks, congestion analysis, utilization reports, and tap cell spacing verification.</p>
+    </div>
+
+    <div class="flow-step">
+      <h3>11. Save Floorplan Snapshot</h3>
+      <p>Save the milestone using DEF, Tcl snapshot, or database checkpoint to preserve reproducibility.</p>
+    </div>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.flow-step').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</ul>
+</body>
+</html>
