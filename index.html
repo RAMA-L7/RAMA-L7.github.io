@@ -66,6 +66,27 @@
         width: 100%;
       }
     }
+  .signature-wrapper.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-signature {
+  max-width: 300px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 0 6px #00e5ff88);
+  opacity: 0.9;
+  animation: gentleGlow 4s ease-in-out infinite;
+}
+
+@keyframes gentleGlow {
+  0% { filter: drop-shadow(0 0 4px #00e5ff55); }
+  50% { filter: drop-shadow(0 0 12px #00e5ffaa); }
+  100% { filter: drop-shadow(0 0 4px #00e5ff55); }
+}
+
   </style>
 </head>
 <body>
