@@ -66,7 +66,15 @@
         width: 100%;
       }
     }
-  .signature-wrapper.visible {
+    .signature-wrapper {
+  display: inline-block;
+  margin-top: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
+
+.signature-wrapper.visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -88,6 +96,7 @@
 }
 
   </style>
+
 </head>
 <body>
 <!-- 🌀 Animated Background SVG Shapes -->
@@ -346,6 +355,7 @@ window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 </script>
 
+
 <footer style="text-align: center; padding: 40px 20px; color: #80deea; position: relative;">
   <p style="margin-bottom: 10px;">Site crafted with purpose —</p>
 
@@ -373,4 +383,3 @@ window.addEventListener('load', revealOnScroll);
 
 
 </section>
-
