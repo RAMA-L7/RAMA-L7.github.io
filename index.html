@@ -325,6 +325,31 @@ window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 </script>
 
+<footer style="text-align: center; padding: 40px 20px; color: #80deea; position: relative;">
+  <p style="margin-bottom: 10px;">Site crafted with purpose —</p>
+
+  <div class="signature-wrapper">
+    <img src="signature.png" alt="Signature of Rama Krishna in Telugu" class="fade-in-signature" />
+    <p style="font-size: 0.9em; color: #4dd0e1; margin-top: 8px;"></p>
+  </div>
+</footer>
+
+<!-- Signature Animation Script -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  observer.observe(document.querySelector('.signature-wrapper'));
+</script>
+
+<script src="https://cdn.counter.dev/script.js" data-id="ec505bab-f587-45ff-ac42-25ae1aa90c53" data-utcoffset="6"></script>
+
 
 </section>
 
