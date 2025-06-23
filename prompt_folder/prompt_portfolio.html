@@ -155,7 +155,7 @@
       transition: all 0.3s ease;
       box-shadow: 0 0 0 transparent;
     " onmouseover="this.style.boxShadow='0 0 15px #00f2ff99'" onmouseout="this.style.boxShadow='0 0 0 transparent'">
-      🪄 Explore AI Terminology
+      🧩 Explore AI Terminology
     </a>
     
     <a href="prompt_playground.html" style="
@@ -255,6 +255,117 @@
     <h2>🎯 Why Prompt Engineering Matters</h2>
     <p>LLMs are powerful but directionless. Prompt engineering provides structure, constraints, and creativity — guiding the AI like a circuit guides current. It’s essential for AI accuracy, safety, and practical utility.</p>
   </section>
+
+  <section id="ai-mindmap" style="background: #0f0f1a; padding: 80px 20px; font-family: 'Segoe UI', sans-serif; color: #e0f7fa; position: relative; overflow: hidden;">
+  <h2 style="text-align: center; color: #00e5ff; font-size: 2.2em; margin-bottom: 40px;">🧠 AI Terminology Mind Map</h2>
+  <p style="text-align: center; color: #80deea; font-size: 1.1em; max-width: 720px; margin: 0 auto 40px;">
+    Hover near the center to reveal the landscape of AI — from models and learning styles to prompting, agents, and tools.
+  </p>
+
+  <div class="map-container">
+    <div class="center-node">AI</div>
+
+    <!-- Branch Nodes (asymmetric layout) -->
+    <div class="term-node t1" title="Machine Learning — Training AI with data to make predictions.">ML</div>
+<div class="term-node t2" title="Natural Language Processing — How AI understands human language.">NLP</div>
+<div class="term-node t3" title="Deep Learning — AI using brain-inspired neural networks.">DL</div>
+<div class="term-node t4" title="CNN — Specialized in analyzing images (Convolutional Neural Network).">CNN</div>
+<div class="term-node t5" title="RNN — Best for sequences like text or audio (Recurrent Neural Network).">RNN</div>
+<div class="term-node t6" title="Transformer — The model architecture behind GPT and BERT.">Transformer</div>
+<div class="term-node t7" title="Prompt — The input you give to an AI to get results.">Prompt</div>
+<div class="term-node t8" title="LLM — Large Language Model trained on huge amounts of text.">LLM</div>
+<div class="term-node t9" title="RAG — AI retrieves facts before generating answers.">RAG</div>
+<div class="term-node t10" title="Agents — AIs that think, plan, and use tools.">Agents</div>
+<div class="term-node t11" title="LangChain — A toolkit to build smart AI apps with tools and memory.">LangChain</div>
+<div class="term-node t12" title="Bias — When AI makes unfair decisions based on flawed data.">Bias</div>
+<div class="term-node t13" title="Embedding — Turns words/images into numeric vectors.">Embedding</div>
+<div class="term-node t14" title="Chain of Thought — AI reasons step-by-step before answering.">Chain of Thought</div>
+<div class="term-node t15" title="Inference — The AI’s process of generating predictions.">Inference</div>
+
+  </div>
+
+  <style>
+    .map-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      height: 600px;
+      margin: 0 auto;
+      transition: filter 0.3s ease;
+    }
+
+    .center-node {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 100px;
+      height: 100px;
+      background: #102a36;
+      color: #00e5ff;
+      font-weight: bold;
+      font-size: 1.2em;
+      text-align: center;
+      line-height: 100px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 30px #00e5ff55;
+      z-index: 10;
+      transition: box-shadow 0.4s ease;
+    }
+
+    .term-node {
+      position: absolute;
+      background: #0c2736;
+      padding: 10px 16px;
+      border-radius: 8px;
+      color: #b2ebf2;
+      font-size: 0.9em;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 1s ease, transform 0.8s ease;
+      box-shadow: 0 0 0px transparent;
+      pointer-events: none;
+    }
+
+    /* Randomized positions around center */
+    .t1  { top: 10%;  left: 45%; }
+    .t2  { top: 20%;  left: 65%; }
+    .t3  { top: 30%;  left: 30%; }
+    .t4  { top: 35%;  left: 80%; }
+    .t5  { top: 55%;  left: 10%; }
+    .t6  { top: 65%;  left: 60%; }
+    .t7  { top: 70%;  left: 35%; }
+    .t8  { top: 15%;  left: 25%; }
+    .t9  { top: 75%;  left: 80%; }
+    .t10 { top: 45%;  left: 85%; }
+    .t11 { top: 80%;  left: 15%; }
+    .t12 { top: 10%;  left: 75%; }
+    .t13 { top: 58%;  left: 50%; }
+    .t14 { top: 25%;  left: 10%; }
+    .t15 { top: 88%;  left: 50%; }
+
+    /* Hover-triggered reveal */
+    .map-container:hover .term-node {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+      box-shadow: 0 0 12px #f6f8f955;
+    }
+
+    .map-container:hover .center-node {
+      box-shadow: 0 0 40px #f6f9f9aa, 0 0 80px #00e5ff33;
+    }
+
+    @media (max-width: 768px) {
+      .map-container {
+        transform: scale(0.9);
+        height: 800px;
+      }
+    }
+  </style>
+</section>
+
+  
 
   <h2 class="section-title" style="animation-delay: 1s;">🧠 Featured Prompts</h2>
 
