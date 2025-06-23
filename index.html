@@ -95,6 +95,46 @@
   100% { filter: drop-shadow(0 0 4px #00e5ff55); }
 }
 
+  /* Base pill style */
+.pill-link {
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-weight: bold;
+  margin: 0 8px;
+  display: inline-block;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* VLSI Pill — Cyan Theme */
+.pill-vlsi {
+  background: #0c2736;
+  color: #00e5ff;
+  border: 1px solid #00e5ff88;
+  box-shadow: 0 0 8px #00e5ff44;
+}
+
+.pill-vlsi:hover {
+  background: #00e5ff;
+  color: #0a1929;
+  box-shadow: 0 0 16px #00e5ffcc;
+}
+
+/* Prompt Pill — Violet Glow */
+.pill-prompt {
+  background: #1a1449;
+  color: #d088ff;
+  border: 1px solid #d088ff88;
+  box-shadow: 0 0 8px #d088ff44;
+}
+
+.pill-prompt:hover {
+  background: #d088ff;
+  color: #0a1929;
+  box-shadow: 0 0 18px #d088ffcc;
+}
+
+
   </style>
 
 </head>
@@ -211,15 +251,19 @@ window.onload = typeEffect;
       <h1>Rama Krishna Ketha</h1>
       <p>VLSI Engineer | AI Evaluator | Writer | Listener</p>
       <nav>
-        <a href="#about">About</a>
-        <a href="#resume">Resume</a>
-        <a href="#projects">Projects</a>
-        <a href="#blog">Blog</a>
-        <a href="vlsi_lab.html"> vlsi_lab</a>
-        <a href="prompt_folder/prompt_portfolio.html">Prompt Portfolio</a>
-        <a href="#contact">Contact</a>
-        
-      </nav>
+  <a href="#about">About</a>
+  <a href="#resume">Resume</a>
+  <a href="#projects">Projects</a>
+  <a href="#blog">Blog</a>
+
+  <!-- VLSI: Cool Cyan Pill -->
+  <a href="vlsi_lab.html" class="pill-link pill-vlsi">VLSI Lab</a>
+
+  <!-- Prompt: Purple Glow Pill -->
+  <a href="prompt_folder/prompt_portfolio.html" class="pill-link pill-prompt">Prompt Portfolio</a>
+
+  <a href="#contact">Contact</a>
+</nav>
     </div>
 
     <div class="main">
