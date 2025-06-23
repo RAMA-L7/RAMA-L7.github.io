@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Terminology Lab</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0a1929;
+      font-family: 'Segoe UI', sans-serif;
+      color: #e0f7fa;
+    }
+    section {
+      padding: 60px 20px;
+    }
+    .term-category ul {
+      max-width: 900px;
+      margin: 0 auto 40px;
+      list-style: none;
+      padding: 0;
+    }
+    .term-category li {
+      margin: 10px 0;
+      font-size: 1em;
+      line-height: 1.6em;
+    }
+    h2, h3 {
+      text-align: center;
+    }
+    h2 {
+      color: #00e5ff;
+      font-size: 2.2em;
+    }
+    h3 {
+      color: #4dd0e1;
+      font-size: 1.5em;
+      margin-top: 50px;
+    }
+    .ai-table {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto 60px;
+      border-collapse: collapse;
+      font-size: 1em;
+      background: #0c2736;
+      box-shadow: 0 0 20px #00e5ff22;
+    }
+    .ai-table thead {
+      background-color: #062433;
+    }
+    .ai-table th, .ai-table td {
+      padding: 16px 20px;
+      text-align: left;
+      border-bottom: 1px solid #00e5ff11;
+    }
+    .ai-table th {
+      color: #00e5ff;
+      font-size: 1.1em;
+    }
+    .ai-table td {
+      color: #b2ebf2;
+      line-height: 1.6em;
+    }
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-out;
+    }
+    .fade-in-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .back-button {
+      display: block;
+      text-align: center;
+      margin: 40px auto 0;
+    }
+    .back-button a {
+      display: inline-block;
+      background-color: #00e5ff;
+      color: #0a1929;
+      padding: 10px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .back-button a:hover {
+      background-color: #4dd0e1;
+    }
+  </style>
+</head>
+<body>
+
+<section id="ai-terminology">
+  <h2>🧠 AI Terminology Lab</h2>
+  <p style="text-align: center; color: #80deea; max-width: 800px; margin: 20px auto 40px; font-size: 1.1em;">
+    Great! To learn and speak the language of AI confidently, it’s important to understand the core terminology. I’ll explain each one in simple, beginner-friendly terms — like talking to a smart 10-year-old — and group them into categories so it’s easy to remember.
+  </p>
+
+  <div class="term-category">
+    <h3>🧠 Foundational Concepts</h3>
+    <ul>
+      <li><strong>AI (Artificial Intelligence):</strong> Teaching machines to act smart, like humans.</li>
+      <li><strong>ML (Machine Learning):</strong> Helping machines learn from data (not rules).</li>
+      <li><strong>DL (Deep Learning):</strong> A type of ML using brain-like networks.</li>
+      <li><strong>NLP (Natural Language Processing):</strong> How AI understands human language.</li>
+      <li><strong>Computer Vision:</strong> How AI sees images or videos.</li>
+      <li><strong>Model:</strong> The AI brain that makes decisions.</li>
+    </ul>
+  </div>
+
+  <div class="term-category">
+    <h3>🧪 Machine Learning Terms</h3>
+    <ul>
+      <li><strong>Training:</strong> Teaching a model with example data.</li>
+      <li><strong>Dataset:</strong> A big collection of training data.</li>
+      <li><strong>Features:</strong> Inputs the model learns from.</li>
+      <li><strong>Labels:</strong> Correct answers in training data.</li>
+      <li><strong>Supervised Learning:</strong> Learning with labeled data.</li>
+      <li><strong>Unsupervised Learning:</strong> Finding patterns without labels.</li>
+      <li><strong>Overfitting:</strong> When a model memorizes too much.</li>
+      <li><strong>Underfitting:</strong> When a model is too simple.</li>
+      <li><strong>Accuracy / Precision / Recall:</strong> Metrics to judge model quality.</li>
+    </ul>
+  </div>
+
+  <div class="term-category">
+    <h3>🧠 Deep Learning & Neural Networks</h3>
+    <ul>
+      <li><strong>Neuron:</strong> A tiny brain-like unit.</li>
+      <li><strong>Layer:</strong> A group of neurons.</li>
+      <li><strong>Neural Network:</strong> A system of layers that learns patterns.</li>
+      <li><strong>CNN (Convolutional Neural Network):</strong> Good for image tasks.</li>
+      <li><strong>RNN (Recurrent Neural Network):</strong> Good for sequences like text.</li>
+      <li><strong>Transformer:</strong> A model type used in ChatGPT.</li>
+      <li><strong>Embedding:</strong> Turning text/images into numbers.</li>
+    </ul>
+  </div>
+
+  <div class="term-category">
+    <h3>🛠️ Tools & Systems</h3>
+    <ul>
+      <li><strong>Prompt:</strong> What you type to an AI.</li>
+      <li><strong>Agent:</strong> An AI that can plan and act.</li>
+      <li><strong>Chain:</strong> A series of AI steps.</li>
+      <li><strong>Inference:</strong> AI making a prediction.</li>
+      <li><strong>API (Application Programming Interface):</strong> Way apps talk to AI.</li>
+      <li><strong>LangChain:</strong> Toolkit to build smart AI apps.</li>
+    </ul>
+  </div>
+
+  <div class="term-category">
+    <h3>🛡️ Ethics & Safety</h3>
+    <ul>
+      <li><strong>Bias:</strong> When AI is unfair.</li>
+      <li><strong>Fairness:</strong> Making AI treat people equally.</li>
+      <li><strong>Explainability:</strong> Understanding AI decisions.</li>
+      <li><strong>Privacy:</strong> Protecting personal info.</li>
+      <li><strong>Responsible AI:</strong> Using AI carefully.</li>
+    </ul>
+  </div>
+
+  <div class="fade-in-section">
+    <h3 class="ai-section-title">🧠 Advanced AI Terminology – Level 2</h3>
+    <table class="ai-table">
+      <thead>
+        <tr>
+          <th>Term</th>
+          <th>Full Form</th>
+          <th>Simple Explanation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>LLM</td>
+          <td>Large Language Model</td>
+          <td>A big AI trained to understand and generate human-like text (e.g. GPT-4).</td>
+        </tr>
+        <tr>
+          <td>RAG</td>
+          <td>Retrieval-Augmented Generation</td>
+          <td>A method where the AI fetches facts from documents before answering.</td>
+        </tr>
+        <tr>
+          <td>FAISS</td>
+          <td>Facebook AI Similarity Search</td>
+          <td>A tool to store and search text as vectors (used in RAG for memory).</td>
+        </tr>
+        <tr>
+          <td>CoT</td>
+          <td>Chain of Thought</td>
+          <td>Teaching AI to solve problems step-by-step, like showing its work.</td>
+        </tr>
+        <tr>
+          <td>ReAct</td>
+          <td>Reason + Act</td>
+          <td>AI thinks out loud and then takes an action (used in agents).</td>
+        </tr>
+        <tr>
+          <td>API</td>
+          <td>Application Programming Interface</td>
+          <td>How apps and tools communicate with AI services like OpenAI.</td>
+        </tr>
+        <tr>
+          <td>LangChain</td>
+          <td>–</td>
+          <td>A framework to build AI apps that use tools, memory, and agents.</td>
+        </tr>
+        <tr>
+          <td>Embedding</td>
+          <td>–</td>
+          <td>Turning words into numbers so they can be stored or searched.</td>
+        </tr>
+        <tr>
+          <td>Agent</td>
+          <td>–</td>
+          <td>An AI that can plan steps and use tools—like a digital assistant.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="back-button">
+    <a href="prompt_portfolio.html">← Back to Prompt Portfolio</a>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('.fade-in-section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    sections.forEach(section => observer.observe(section));
+  });
+</script>
+
+</body>
+</html>
