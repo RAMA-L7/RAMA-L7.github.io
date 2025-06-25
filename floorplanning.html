@@ -382,15 +382,16 @@
     <h2 style="color:#00e5ff; font-size: 2em;">🔍 Detailed Floorplanning </h2>
     <p style="color:#80deea; font-size: 1.1em; margin-bottom: 20px;">Explore the full flow with animations and real-world order</p>
     
-    <div class="iframe-wrapper" id="pipelineFrame">
-      <iframe 
-        src="floorplan_pipeline.html" 
-        id="fpFrame" 
-        scrolling="no"
-        onload="document.getElementById('pipelineFrame').classList.add('visible')">
-      </iframe>
-    </div>
-  </section>
+    <div class="iframe-wrapper" id="pipelineFrame" style="position: relative; width: 100%; padding-bottom: 180%; height: 0; overflow: hidden;">
+  <iframe 
+    src="floorplan_pipeline.html" 
+    id="fpFrame"
+    scrolling="no"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+    onload="document.getElementById('pipelineFrame').classList.add('visible')">
+  </iframe>
+</div>
+
 
 <head>
   <meta charset="UTF-8" />
