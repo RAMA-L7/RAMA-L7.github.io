@@ -127,6 +127,101 @@
   overflow-y: auto;   /* ✅ Allow vertical scrolling if necessary */
 }
 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<style>
+  /* General fix for flow-step cards and page responsiveness */
+  body {
+    margin: 0;
+    background: #0a1929;
+    color: #e0f7fa;
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+  }
+
+  .flow-section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 20px;
+    position: relative;
+  }
+
+  .timeline {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background-color: #03d9fe;
+  }
+
+  .flow-step {
+    width: 600px;
+    margin: 60px auto;
+    padding: 20px 25px;
+    background: #0c2736;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #00e5ff33;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .flow-step.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .flow-step h3 {
+    text-align: center;
+    font-size: 1.3em;
+    color: #4dd0e1;
+    margin-bottom: 10px;
+  }
+
+  .flow-step p {
+    text-align: center;
+    font-size: 1em;
+    line-height: 1.6em;
+    margin: 0;
+  }
+
+  @keyframes pulseGlow {
+    0%   { box-shadow: 0 0 6px #00e5ff; }
+    50%  { box-shadow: 0 0 20px #00e5ff; }
+    100% { box-shadow: 0 0 6px #00e5ff; }
+  }
+
+  .timeline {
+    animation: pulseGlow 2s infinite;
+  }
+
+  /* 🔧 Mobile Fixes */
+  @media screen and (max-width: 768px) {
+    .flow-step {
+      width: 90% !important;
+      padding: 15px;
+    }
+
+    .flow-section {
+      padding: 10px;
+    }
+
+    .flow-step h3 {
+      font-size: 1.1em;
+    }
+
+    .flow-step p {
+      font-size: 0.95em;
+    }
+
+    .timeline {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+</style>
+
   </style>
 </head>
 <body>
