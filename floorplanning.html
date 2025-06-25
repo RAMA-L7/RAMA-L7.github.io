@@ -378,11 +378,7 @@
 
 <body>
 
-   <section style="text-align:center; padding: 40px 20px;">
-    <h2 style="color:#00e5ff; font-size: 2em;">🔍 Detailed Floorplanning Pipeline</h2>
-    <p style="color:#80deea; font-size: 1.1em; margin-bottom: 20px;">Explore the full flow with animations and real-world order</p>
-    
-    <div class="iframe-wrapper" id="pipelineFrame" style="width: 100%; max-width: 100%; margin: auto;">
+   <div class="iframe-wrapper" id="pipelineFrame">
   <iframe 
     src="floorplan_pipeline.html" 
     id="fpFrame" 
@@ -391,6 +387,16 @@
     onload="document.getElementById('pipelineFrame').classList.add('visible')">
   </iframe>
 </div>
+
+<style>
+  /* Override height for mobile only */
+  @media screen and (max-width: 768px) {
+    #fpFrame {
+      height: 3000px !important;
+    }
+  }
+</style>
+
 
 
 <head>
